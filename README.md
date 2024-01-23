@@ -34,7 +34,7 @@ Cloner le Projet:
 git clone https://github.com/Urgalute/Commeau_Tichit_groupie_tracker.git
 
 Accéder au Site:
-Ouvrez votre navigateur et accédez à http://localhost:3000   ( a modifier en fonction du serveur ...) 
+Ouvrez votre navigateur et accédez à http://localhost:3000  
 
 
 CONTRIBUTIONS ET RETOURS
