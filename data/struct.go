@@ -12,3 +12,9 @@ type ArtStruct struct {
 	Preview  string `json:"preview"`
 }
 */
+type Token struct {
+	AccessToken string `json:"accesstoken"`
+	TokenType   string `json:"tokentype"`
+	expiresin   int    `json:"expire_in"`
+	Sub         string `json:"sub"`
+}
