@@ -31,17 +31,7 @@ INSTALLATION - CONFIGURATION :
 
 
 Cloner le Projet:
-git clone https://github.com/votre-utilisateur/WoWExplorer.git
-
-
-Installer les Dépendances:
-cd WoWExplorer
-npm install
-
-
-Lancer l'Application:
-npm start
-
+git clone https://github.com/Urgalute/Commeau_Tichit_groupie_tracker.git
 
 Accéder au Site:
 Ouvrez votre navigateur et accédez à http://localhost:3000   ( a modifier en fonction du serveur ...) 
