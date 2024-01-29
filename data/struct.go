@@ -15,6 +15,6 @@ type ArtStruct struct {
 type Token struct {
 	AccessToken string `json:"accesstoken"`
 	TokenType   string `json:"tokentype"`
-	expiresin   int    `json:"expire_in"`
+	ExpiresIn   int    `json:"expire_in"`
 	Sub         string `json:"sub"`
 }

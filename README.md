@@ -31,10 +31,20 @@ INSTALLATION - CONFIGURATION :
 
 
 Cloner le Projet:
-git clone https://github.com/Urgalute/Commeau_Tichit_groupie_tracker.git
+git clone https://github.com/Urgalute/Livrables-projet-groupie-tracker.git
 
 Accéder au Site:
 Ouvrez votre navigateur et accédez à http://localhost:3000  
+
+Les différentes routes : 
+ "/" Page d'accueil 
+ "/doc" Liste des route avec les lien associé pour, si possible, y acceder directement //Penser à rajouter des infos
+ "/collection" Affichage de toutes les spécialisations avec possibilité de les filtrer par classe, race et stat principale 
+ "/ressource" Affichage détaillé de la spécialisation sélectionné
+ "/fav" Affichage des spécialisation qui ont été ajouté à la liste des favoris
+"/about" Sur cette page vous allez indiquer le lien vers les maquettes et la liste des taches dans l’ordre que
+vous les avez exécutées, de plus vous aller indiquer les difficultés auquel vous avez fait face ! N’hésitez
+pas à vous la lâcher c’est votre journal de bord 
 
 
 CONTRIBUTIONS ET RETOURS

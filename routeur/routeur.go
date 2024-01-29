@@ -9,6 +9,12 @@ import (
 
 func InitServ() {
 	http.HandleFunc("/", controller.Index)
+	//http.HandleFunc("/doc", )
+	//http.HandleFunc("/about", )
+	//http.HandleFunc("/collection", )
+	//http.HandleFunc("/favoris", )
+	//http.HandleFunc("/ressource", )
+	
 
 	rootDoc, _ := os.Getwd()
 	fileserver := http.FileServer(http.Dir(rootDoc + "/assets"))
