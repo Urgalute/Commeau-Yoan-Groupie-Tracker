@@ -6,5 +6,6 @@ import (
 )
 
 func Ressource(w http.ResponseWriter, r *http.Request) {
+
 	InitTemp.Temp.ExecuteTemplate(w, "ressource", nil)
 }

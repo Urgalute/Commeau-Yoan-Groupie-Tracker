@@ -10,24 +10,42 @@ type ArtStruct struct {
 	Content  string `json:"content"`
 	Category string `json:"category"`
 	Preview  string `json:"preview"`
-}
-*/
+}*/
 
+//Infos de bases des spécialisations
 type Spec struct {
 	SpecName string `json:"name"`
 	Id       int    `json:"id"`
 }
+
+//Tableau de stucture spécialisations
 type TabSpec struct {
-	Spec Spec `json:"character_specializations"`
+	TabSpec []Spec `json:"character_specializations"`
 }
+
+//Infos de bases des classes
 type Class struct {
 	ClassName string `json:"name"`
 	Id        int    `json:"id"`
 }
+
+//Tableau de stucture classes
+type TabClass struct {
+	TabClass []Class `json:"classes"`
+}
+
+//Infos de bases des races
 type Race struct {
 	RaceName string `json:"name"`
 	Id       int    `json:"id"`
 }
+
+//Tableau de stucture races
+type TabRace struct {
+	TabRace []Race `json:"races"`
+}
+
+//Details des spécialisations
 type SpecDetails struct {
 	ClassName       Class
 	ClassId         int
@@ -38,6 +56,8 @@ type SpecDetails struct {
 	SpecPowerType   string
 	SpecPrimaryStat string
 }
+
+//Détails des classes
 type ClassDetails struct {
 	ClassName         string
 	ClassId           int
@@ -46,6 +66,8 @@ type ClassDetails struct {
 	ClassPlayableRace []Race
 	ClassAddPowerType string
 }
+
+//Détails des races
 type RaceDetails struct {
 	RaceName          string
 	RaceFaction       string

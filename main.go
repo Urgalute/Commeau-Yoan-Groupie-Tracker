@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	controller.FirstRequest()
+	controller.AskToken()
 	temps.InitTemplate()
 	routeur.InitServ()
 }

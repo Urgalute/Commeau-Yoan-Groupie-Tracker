@@ -11,7 +11,17 @@
 </head>
 
 <body>
+    
+    {{range .TabSpec}}
+    <div class="spec">
+        
+        {{.SpecName}}
+        {{.Id}}
+    </div>
+    {{end}}
+
     Affichage de toutes les spécialisations avec possibilité de les filtrer par classe, race et stat principale
+
 </body>
 
 </html>
