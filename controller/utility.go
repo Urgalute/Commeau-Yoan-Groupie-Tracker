@@ -61,7 +61,7 @@ func AskToken() error {
 }
 
 // Fonction qui récup toutes les spécialisation (Nom, Id)
-func GetSpec() (data.TabSpec, error) {
+func GetAllSpec() (data.TabSpec, error) {
 	urlAPI := "https://eu.api.blizzard.com/data/wow/playable-specialization/index?namespace=static-eu&locale=fr_FR"
 
 	client := http.Client{
@@ -104,7 +104,7 @@ func GetSpec() (data.TabSpec, error) {
 }
 
 // Fonction qui récup toutes les classes (Nom, Id)
-func GetClass() (data.TabClass, error) {
+func GetAllClass() (data.TabClass, error) {
 	urlAPI := "https://eu.api.blizzard.com/data/wow/playable-class/index?namespace=static-eu&locale=fr_FR"
 
 	client := http.Client{
@@ -147,7 +147,7 @@ func GetClass() (data.TabClass, error) {
 }
 
 // Fonction qui récup toutes les races (Nom, Id)
-func GetRace() (data.TabRace, error) {
+func GetAllRace() (data.TabRace, error) {
 	urlAPI := "https://eu.api.blizzard.com/data/wow/playable-race/index?namespace=static-eu&locale=fr_FR"
 
 	client := http.Client{
@@ -187,4 +187,8 @@ func GetRace() (data.TabRace, error) {
 	}
 
 	return data.TabRace{}, fmt.Errorf("oupss une erreur avec la requete \" GetRace \" code réponse : %v", res.StatusCode)
+}
+
+func GetSpec() {
+
 }

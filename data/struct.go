@@ -1,17 +1,5 @@
 package data
 
-/*
-type ArtStruct struct {
-	Name     string `json:"name"`
-	Id       int    `json:"id"`
-	Img      string `json:"img"`
-	Auteur   string `json:"auteur"`
-	Date     string `json:"date"`
-	Content  string `json:"content"`
-	Category string `json:"category"`
-	Preview  string `json:"preview"`
-}*/
-
 //Infos de bases des spécialisations
 type Spec struct {
 	SpecName string `json:"name"`
@@ -47,30 +35,66 @@ type TabRace struct {
 
 //Details des spécialisations
 type SpecDetails struct {
-	ClassName       Class
-	ClassId         int
-	SpecName        string
-	SpecDescription string
-	SpecId          int
-	SpecRole        string
-	SpecPowerType   string
-	SpecPrimaryStat string
+	ClassName       []Class           `json:"playable_class"`
+	SpecName        string            `json:"name"`
+	SpecDescription string            `json:"gender_description"`
+	SpecId          int               `json:"id"`
+	SpecRole        []SpecRole        `json:"role"`
+	SpecPowerType   []PowerType       `json:"power_type"`
+	SpecPrimaryStat []SpecPrimaryStat `json:"primary_stat_type"`
+}
+
+type SpecRole struct {
+	RoleName string `json:"name"`
+	RoleType string `json:"type"`
+}
+type SpecPrimaryStat struct {
+	PrimaryStatName string `json:"name"`
+	PrimaryStatId   int    `json:"id"`
+}
+
+type TabSpecDetails struct {
+	TabSpecDetails []SpecDetails `json:"specdetails"`
 }
 
 //Détails des classes
 type ClassDetails struct {
-	ClassName         string
-	ClassId           int
-	ClassPowerType    string
-	ClassSpec         []Spec
-	ClassPlayableRace []Race
-	ClassAddPowerType string
+	ClassName         string         `json:"name"`
+	ClassId           int            `json:"id"`
+	ClassPowerType    []PowerType    `json:"power_type"`
+	ClassSpec         []Spec         `json:"specializations"`
+	ClassPlayableRace []Race         `json:"playable_races"`
+	ClassAddPowerType []AddPowerType `json:"additional_power_types"`
+}
+
+type PowerType struct {
+	PowerName string `json:"name"`
+	PowerId   int    `json:"id"`
+}
+
+type AddPowerType struct {
+	AddPowerName string `json:"name"`
+	AddPowerId   int    `json:"id"`
+}
+
+type TabClassDetails struct {
+	TabClassDetails []ClassDetails `json:"classdetails"`
 }
 
 //Détails des races
 type RaceDetails struct {
-	RaceName          string
-	RaceFaction       string
-	RaceAllied        bool
-	RacePlayableClass []Class
+	RaceName          string    `json:"name"`
+	RaceId            int       `json:"id"`
+	RaceFaction       []Faction `json:"faction"`
+	RaceAllied        bool      `json:"is_allied_race"`
+	RacePlayableClass []Class   `json:"playable_classes"`
+}
+
+type TabRaceDetails struct {
+	TabRaceDetails []RaceDetails `json:"racedetails"`
+}
+
+type Faction struct {
+	FactionName string `json:"name"`
+	FactionType string `json:"type"`
 }

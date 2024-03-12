@@ -8,7 +8,7 @@ import (
 
 // Affichage de la page collection avec toutes les spécialisations
 func Collection(w http.ResponseWriter, r *http.Request) {
-	data, err := GetSpec()
+	data, err := GetAllSpec()
 	if err != nil {
 		fmt.Println("Erreur lors de la récupération des spécialisations : ", err)
 		return

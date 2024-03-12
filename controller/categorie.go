@@ -7,7 +7,7 @@ import (
 )
 
 func Categorie(w http.ResponseWriter, r *http.Request) {
-	data, err := GetClass()
+	data, err := GetAllClass()
 	if err != nil {
 		fmt.Println("Erreur lors de la récupération des classes : ", err)
 		return

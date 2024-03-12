@@ -6,6 +6,6 @@ import (
 )
 
 func Ressource(w http.ResponseWriter, r *http.Request) {
-
+	//Data := 
 	InitTemp.Temp.ExecuteTemplate(w, "ressource", nil)
 }
