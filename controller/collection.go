@@ -32,6 +32,7 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(data)
 		InitTemp.Temp.ExecuteTemplate(w, "collection", data)
 	}
+	
 
 	if route == "tank" {
 		TabSpec, listSpecErr := GetAllSpec()
