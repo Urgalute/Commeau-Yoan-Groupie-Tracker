@@ -100,7 +100,7 @@ func GetAllSpec() (data.TabSpec, error) {
 		return DataRes, nil
 	}
 
-	return data.TabSpec{}, fmt.Errorf("oupss une erreur avec la requete \" GetSpec \" code réponse : %v", res.StatusCode)
+	return data.TabSpec{}, fmt.Errorf("oupss une erreur avec la requete \" GetAllSpec \" code réponse : %v", res.StatusCode)
 }
 
 // Fonction qui récup toutes les classes (Nom, Id)
@@ -138,12 +138,12 @@ func GetAllClass() (data.TabClass, error) {
 		var DataRes data.TabClass
 		errJson := json.Unmarshal(dataa, &DataRes)
 		if errJson != nil {
-			return data.TabClass{}, fmt.Errorf("oupss une erreur lors du decodage des données")
+			return data.TabClass{}, fmt.Errorf("oupss une erreur lors du decodage des données : ", errJson.Error())
 		}
 		return DataRes, nil
 	}
 
-	return data.TabClass{}, fmt.Errorf("oupss une erreur avec la requete \" GetClass \" code réponse : %v", res.StatusCode)
+	return data.TabClass{}, fmt.Errorf("oupss une erreur avec la requete \" GetAllClass \" code réponse : %v", res.StatusCode)
 }
 
 // Fonction qui récup toutes les races (Nom, Id)
@@ -186,9 +186,130 @@ func GetAllRace() (data.TabRace, error) {
 		return DataRes, nil
 	}
 
-	return data.TabRace{}, fmt.Errorf("oupss une erreur avec la requete \" GetRace \" code réponse : %v", res.StatusCode)
+	return data.TabRace{}, fmt.Errorf("oupss une erreur avec la requete \" GetAllRace \" code réponse : %v", res.StatusCode)
 }
 
-func GetSpec() {
+func GetSpec(id int) (data.SpecDetails, error) {
+	urlAPI := fmt.Sprintf("https://eu.api.blizzard.com/data/wow/playable-specialization/%d?namespace=static-eu&locale=fr_FR", id)
 
+	client := http.Client{
+		Timeout: 2 * time.Second,
+	}
+
+	// Initialisation de la requête avec la méthode, l'endpoint et le corps de la requête
+	req, _ := http.NewRequest(http.MethodGet, urlAPI, nil)
+
+	// Ajout du token dans le header avec l'attribut 'Authorization'
+	req.Header.Add("Authorization", _Token)
+
+	// Envoie de la requête
+	res, resErr := client.Do(req)
+	if resErr != nil {
+		return data.SpecDetails{}, fmt.Errorf("oupss erreur avec la requete")
+	}
+
+	if res.StatusCode == http.StatusUnauthorized {
+		return data.SpecDetails{}, fmt.Errorf("oupss erreur d'authentification : code 401")
+		// Ici, il faudra gérer le token expiré...
+	} else if res.StatusCode == http.StatusOK {
+		defer res.Body.Close()
+
+		dataa, dataErr := io.ReadAll(res.Body)
+		if dataErr != nil {
+			fmt.Println("err lecture body")
+			return data.SpecDetails{}, fmt.Errorf("oupss une erreur lors de lecture de la réponse")
+		}
+
+		var DataSpec data.SpecDetails
+		errJson := json.Unmarshal(dataa, &DataSpec)
+		if errJson != nil {
+			return data.SpecDetails{}, fmt.Errorf("oupss une erreur lors du decodage des données")
+		}
+		return DataSpec, nil
+	}
+
+	return data.SpecDetails{}, fmt.Errorf("oupss une erreur avec la requete \" GetSpec \" code réponse : %v", res.StatusCode)
+}
+
+func GetClass(id int) (data.ClassDetails, error) {
+	urlAPI := fmt.Sprintf("https://eu.api.blizzard.com/data/wow/playable-class/%d?namespace=static-eu&locale=fr_FR", id)
+
+	client := http.Client{
+		Timeout: 2 * time.Second,
+	}
+
+	// Initialisation de la requête avec la méthode, l'endpoint et le corps de la requête
+	req, _ := http.NewRequest(http.MethodGet, urlAPI, nil)
+
+	// Ajout du token dans le header avec l'attribut 'Authorization'
+	req.Header.Add("Authorization", _Token)
+
+	// Envoie de la requête
+	res, resErr := client.Do(req)
+	if resErr != nil {
+		return data.ClassDetails{}, fmt.Errorf("oupss erreur avec la requete")
+	}
+
+	if res.StatusCode == http.StatusUnauthorized {
+		return data.ClassDetails{}, fmt.Errorf("oupss erreur d'authentification : code 401")
+		// Ici, il faudra gérer le token expiré...
+	} else if res.StatusCode == http.StatusOK {
+		defer res.Body.Close()
+
+		dataa, dataErr := io.ReadAll(res.Body)
+		if dataErr != nil {
+			fmt.Println("err lecture body")
+			return data.ClassDetails{}, fmt.Errorf("oupss une erreur lors de lecture de la réponse")
+		}
+
+		var DataClass data.ClassDetails
+		errJson := json.Unmarshal(dataa, &DataClass)
+		if errJson != nil {
+			return data.ClassDetails{}, fmt.Errorf("oupss une erreur lors du decodage des données")
+		}
+		return DataClass, nil
+	}
+
+	return data.ClassDetails{}, fmt.Errorf("oupss une erreur avec la requete \" GetClass \" code réponse : %v", res.StatusCode)
+}
+func GetRace(id int) (data.RaceDetails, error) {
+	urlAPI := fmt.Sprintf("https://eu.api.blizzard.com/data/wow/playable-race/%d?namespace=static-eu&locale=fr_FR", id)
+
+	client := http.Client{
+		Timeout: 2 * time.Second,
+	}
+
+	// Initialisation de la requête avec la méthode, l'endpoint et le corps de la requête
+	req, _ := http.NewRequest(http.MethodGet, urlAPI, nil)
+
+	// Ajout du token dans le header avec l'attribut 'Authorization'
+	req.Header.Add("Authorization", _Token)
+
+	// Envoie de la requête
+	res, resErr := client.Do(req)
+	if resErr != nil {
+		return data.RaceDetails{}, fmt.Errorf("oupss erreur avec la requete")
+	}
+
+	if res.StatusCode == http.StatusUnauthorized {
+		return data.RaceDetails{}, fmt.Errorf("oupss erreur d'authentification : code 401")
+		// Ici, il faudra gérer le token expiré...
+	} else if res.StatusCode == http.StatusOK {
+		defer res.Body.Close()
+
+		dataa, dataErr := io.ReadAll(res.Body)
+		if dataErr != nil {
+			fmt.Println("err lecture body")
+			return data.RaceDetails{}, fmt.Errorf("oupss une erreur lors de lecture de la réponse")
+		}
+
+		var DataRace data.RaceDetails
+		errJson := json.Unmarshal(dataa, &DataRace)
+		if errJson != nil {
+			return data.RaceDetails{}, fmt.Errorf("oupss une erreur lors du decodage des données")
+		}
+		return DataRace, nil
+	}
+
+	return data.RaceDetails{}, fmt.Errorf("oupss une erreur avec la requete \" GetRace \" code réponse : %v", res.StatusCode)
 }

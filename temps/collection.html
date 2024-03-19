@@ -11,15 +11,36 @@
 </head>
 
 <body>
-    
-    {{range .TabSpec}}
-    <div class="spec">
-        
-        {{.SpecName}}
-        {{.Id}}
-    </div>
+    <p>Col</p>
+    <p>{{.Route}}</p>
+    {{if eq .Route "allclass"}}
+        {{range .TabClass}}
+            <a href="/ressource?type={{.Id}}">
+            <div>
+                {{.Name}}
+            </div>
+            </a>
+        {{end}}
     {{end}}
 
+    {{if eq .Route "allrace"}}
+        {{range .TabRace}}
+            <a href="/ressource?type={{.Id}}">
+            <div>
+                {{.Name}}
+            </div>
+            </a>
+        {{end}}
+    {{end}}
+    {{if eq .Route "spec"}}
+        {{range .TabSpec}}
+            <a href="/ressource?type={{.Id}}">
+            <div>
+                {{.Name}}
+            </div>
+            </a>
+        {{end}}
+    {{end}}
     Affichage de toutes les spécialisations avec possibilité de les filtrer par classe, race et stat principale
 
 </body>
