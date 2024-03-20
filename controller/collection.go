@@ -32,29 +32,28 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(data)
 		InitTemp.Temp.ExecuteTemplate(w, "collection", data)
 	}
-	
 
 	if route == "tank" {
 		TabSpec, listSpecErr := GetAllSpec()
 		if listSpecErr != nil {
 			// Erreur
 		}
+		fmt.Println(route)
 
-		var TabSpecDetails []data.SpecDetails
+		var TabSpecData []data.Spec
 		for _, spec := range TabSpec.TabSpec {
-			data, errData := GetSpec(spec.Id)
+			dataSpec, errData := GetSpec(spec.Id)
 			if errData != nil {
 				fmt.Println("Erreur pour ID")
 				continue
 			}
 
-			if strings.Contains(strings.ToLower(data.SpecRole.RoleName), strings.ToLower("tank")) {
-				TabSpecDetails = append(TabSpecDetails, data)
-
+			if strings.Contains(strings.ToLower(dataSpec.SpecRole.RoleName), strings.ToLower("tank")) {
+				TabSpecData = append(TabSpecData, data.Spec{dataSpec.Name, dataSpec.Id, route})
 			}
 		}
-		fmt.Println(TabSpecDetails)
-		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecDetails)
+		fmt.Println(TabSpecData)
+		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecData)
 	}
 	if route == "heal" {
 		TabSpec, listSpecErr := GetAllSpec()
@@ -62,21 +61,21 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 			// Erreur
 		}
 
-		var TabSpecDetails []data.SpecDetails
+		var TabSpecData []data.Spec
 		for _, spec := range TabSpec.TabSpec {
-			data, errData := GetSpec(spec.Id)
+			dataSpec, errData := GetSpec(spec.Id)
 			if errData != nil {
 				fmt.Println("Erreur pour ID")
 				continue
 			}
 
-			if strings.Contains(strings.ToLower(data.SpecRole.RoleName), strings.ToLower("soins")) {
-				TabSpecDetails = append(TabSpecDetails, data)
-				fmt.Println(TabSpecDetails)
+			if strings.Contains(strings.ToLower(dataSpec.SpecRole.RoleName), strings.ToLower("soins")) {
+				TabSpecData = append(TabSpecData, data.Spec{dataSpec.Name, dataSpec.Id, route})
+				fmt.Println(TabSpecData)
 			}
 		}
 
-		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecDetails)
+		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecData)
 	}
 	if route == "dps" {
 		TabSpec, listSpecErr := GetAllSpec()
@@ -84,21 +83,21 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 			// Erreur
 		}
 
-		var TabSpecDetails []data.SpecDetails
+		var TabSpecData []data.Spec
 		for _, spec := range TabSpec.TabSpec {
-			data, errData := GetSpec(spec.Id)
+			dataSpec, errData := GetSpec(spec.Id)
 			if errData != nil {
 				fmt.Println("Erreur pour ID")
 				continue
 			}
 
-			if strings.Contains(strings.ToLower(data.SpecRole.RoleName), strings.ToLower("Dégâts")) {
-				TabSpecDetails = append(TabSpecDetails, data)
-				fmt.Println(TabSpecDetails)
+			if strings.Contains(strings.ToLower(dataSpec.SpecRole.RoleName), strings.ToLower("Dégâts")) {
+				TabSpecData = append(TabSpecData, data.Spec{dataSpec.Name, dataSpec.Id, route})
+				fmt.Println(TabSpecData)
 			}
 		}
 
-		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecDetails)
+		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecData)
 	}
 	if route == "force" {
 		TabSpec, listSpecErr := GetAllSpec()
@@ -106,21 +105,21 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 			// Erreur
 		}
 
-		var TabSpecDetails []data.SpecDetails
+		var TabSpecData []data.Spec
 		for _, spec := range TabSpec.TabSpec {
-			data, errData := GetSpec(spec.Id)
+			dataSpec, errData := GetSpec(spec.Id)
 			if errData != nil {
 				fmt.Println("Erreur pour ID")
 				continue
 			}
 
-			if strings.Contains(strings.ToLower(data.SpecPrimaryStat.PrimaryStatName), strings.ToLower("force")) {
-				TabSpecDetails = append(TabSpecDetails, data)
-				fmt.Println(TabSpecDetails)
+			if strings.Contains(strings.ToLower(dataSpec.SpecPrimaryStat.PrimaryStatName), strings.ToLower("force")) {
+				TabSpecData = append(TabSpecData, data.Spec{dataSpec.Name, dataSpec.Id, route})
+				fmt.Println(TabSpecData)
 			}
 		}
 
-		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecDetails)
+		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecData)
 	}
 	if route == "agilite" {
 		TabSpec, listSpecErr := GetAllSpec()
@@ -128,21 +127,21 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 			// Erreur
 		}
 
-		var TabSpecDetails []data.SpecDetails
+		var TabSpecData []data.Spec
 		for _, spec := range TabSpec.TabSpec {
-			data, errData := GetSpec(spec.Id)
+			dataSpec, errData := GetSpec(spec.Id)
 			if errData != nil {
 				fmt.Println("Erreur pour ID")
 				continue
 			}
 
-			if strings.Contains(strings.ToLower(data.SpecPrimaryStat.PrimaryStatName), strings.ToLower("Agilité")) {
-				TabSpecDetails = append(TabSpecDetails, data)
-				fmt.Println(TabSpecDetails)
+			if strings.Contains(strings.ToLower(dataSpec.SpecPrimaryStat.PrimaryStatName), strings.ToLower("Agilité")) {
+				TabSpecData = append(TabSpecData, data.Spec{dataSpec.Name, dataSpec.Id, route})
+				fmt.Println(TabSpecData)
 			}
 		}
 
-		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecDetails)
+		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecData)
 	}
 	if route == "intelligence" {
 		TabSpec, listSpecErr := GetAllSpec()
@@ -150,20 +149,20 @@ func Collection(w http.ResponseWriter, r *http.Request) {
 			// Erreur
 		}
 
-		var TabSpecDetails []data.SpecDetails
+		var TabSpecData []data.Spec
 		for _, spec := range TabSpec.TabSpec {
-			data, errData := GetSpec(spec.Id)
+			dataSpec, errData := GetSpec(spec.Id)
 			if errData != nil {
 				fmt.Println("Erreur pour ID")
 				continue
 			}
 
-			if strings.Contains(strings.ToLower(data.SpecPrimaryStat.PrimaryStatName), strings.ToLower("Intelligence")) {
-				TabSpecDetails = append(TabSpecDetails, data)
-				fmt.Println(TabSpecDetails)
+			if strings.Contains(strings.ToLower(dataSpec.SpecPrimaryStat.PrimaryStatName), strings.ToLower("Intelligence")) {
+				TabSpecData = append(TabSpecData, data.Spec{dataSpec.Name, dataSpec.Id, route})
+				fmt.Println(TabSpecData)
 			}
 		}
 
-		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecDetails)
+		InitTemp.Temp.ExecuteTemplate(w, "collection", TabSpecData)
 	}
 }

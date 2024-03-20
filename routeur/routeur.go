@@ -14,7 +14,7 @@ func InitServ() {
 	http.HandleFunc("/collection", controller.Collection)
 	http.HandleFunc("/categorie", controller.Categorie)
 	//http.HandleFunc("/favoris", )
-	http.HandleFunc("/ressource", controller.RaceRessource)
+	http.HandleFunc("/ressource", controller.Ressource)
 
 	rootDoc, _ := os.Getwd()
 	fileserver := http.FileServer(http.Dir(rootDoc + "/assets"))

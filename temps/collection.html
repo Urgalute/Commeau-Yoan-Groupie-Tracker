@@ -15,33 +15,26 @@
     <p>{{.Route}}</p>
     {{if eq .Route "allclass"}}
         {{range .TabClass}}
-            <a href="/ressource?type={{.Id}}">
+            <a href="/ressource?route=allclass&type={{.Id}}">
             <div>
                 {{.Name}}
             </div>
             </a>
         {{end}}
-    {{end}}
-
-    {{if eq .Route "allrace"}}
+    {{else if eq .Route "allrace"}}
         {{range .TabRace}}
-            <a href="/ressource?type={{.Id}}">
+            <a href="/ressource?route=allrace&type={{.Id}}">
             <div>
                 {{.Name}}
             </div>
             </a>
         {{end}}
+    {{else if eq .Route "tank"}}
+        {{range .Spec}}
+            <p> {{.Name}} </p>
+           {{end}}
     {{end}}
-    {{if eq .Route "spec"}}
-        {{range .TabSpec}}
-            <a href="/ressource?type={{.Id}}">
-            <div>
-                {{.Name}}
-            </div>
-            </a>
-        {{end}}
-    {{end}}
-    Affichage de toutes les spécialisations avec possibilité de les filtrer par classe, race et stat principale
+    <p>Affichage de toutes les spécialisations avec possibilité de les filtrer par classe, race et stat principale</p>
 
 </body>
 
