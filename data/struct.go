@@ -9,6 +9,7 @@ type Spec struct {
 
 //Tableau de stucture spécialisations
 type TabSpec struct {
+	Route   string
 	TabSpec []Spec `json:"character_specializations"`
 }
 
@@ -47,6 +48,7 @@ type SpecDetails struct {
 	SpecRole        SpecRole        `json:"role"`
 	SpecPowerType   PowerType       `json:"power_type"`
 	SpecPrimaryStat SpecPrimaryStat `json:"primary_stat_type"`
+	Route           string
 }
 type Description struct {
 	Description string `json:"male"`
@@ -72,6 +74,7 @@ type ClassDetails struct {
 	ClassSpec         []Spec         `json:"specializations"`
 	ClassPlayableRace []Race         `json:"playable_races"`
 	ClassAddPowerType []AddPowerType `json:"additional_power_types"`
+	Route             string
 }
 
 type PowerType struct {
@@ -95,6 +98,7 @@ type RaceDetails struct {
 	RaceFaction       Faction `json:"faction"`
 	RaceAllied        bool    `json:"is_allied_race"`
 	RacePlayableClass []Class `json:"playable_classes"`
+	Route             string
 }
 
 /*type TabRaceDetails struct {
@@ -104,4 +108,15 @@ type RaceDetails struct {
 type Faction struct {
 	FactionName string `json:"name"`
 	FactionType string `json:"type"`
+}
+
+type Recherche struct {
+	Nom   string
+	Route string
+	id    int
+}
+type Fav struct {
+	Id    int
+	FavId int
+	Route string
 }

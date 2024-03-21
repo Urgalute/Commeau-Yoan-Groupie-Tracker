@@ -1,0 +1,49 @@
+*{
+    text-decoration: none;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+ .content{
+    display: flex;
+ }
+ .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin: 5px;
+    background-color: #3b3b3b;
+    color: aliceblue;
+    border-radius: 20px;
+ }
+ .main h1{
+    font-size: 3em;
+ }
+ .spec{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 5px;
+ }
+ .playablerace{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 5px;
+ }
+ .class{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 5px;
+ }

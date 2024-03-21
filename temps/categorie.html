@@ -9,7 +9,32 @@
     <link rel="stylesheet" href="../static/css/collection.css">
     <title>Document</title>
 </head>
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo"><img src="../static/img/logo_WOW.png" alt="Logo de World of Warcraft"></a>
+        <div class="nav-links">
+            <a href="/categorie" class="cat-name">
+                <div class="cat-btn">Catégories</div>
+            </a>
+            <a href="/favoris" class="cat-name">
+                <div class="cat-btn">Favoris</div>
+            </a>
+            <a href="/about" class="cat-name">
+                <div class="cat-btn">About</div>
+            </a>
+            <a href="/doc" class="cat-name">
+                <div class="cat-btn">Doc</div>
+            </a>
 
+        </div>
+        <div class="searchBox">
+            <form action="/rechercher" method="POST">
+                <input class="searchInput" type="text" name="query" placeholder="Rechercher">
+                <button class="searchButton" type="submit">Go</button>
+            </form>
+        </div>
+    </nav>
+</header>
 <body>
     Vous allez devoir afficher sous forme de liste, carte… Une partie de la collection qui sera triée en
     fonction d’une donnée de la ressource, de plus vous aller devoir mettre en place en système de
@@ -31,17 +56,17 @@
     </a>
     <div>
         Les différent rôle
-            <a href="/collection?type=tank">
+            <a href="/collection?type=Tank">
                 <div>
                     Les Tank
                 </div>
             </a>
-            <a href="/collection?type=heal">
+            <a href="/collection?type=Soins">
                 <div>
                     Les Healer
                 </div>
             </a>
-            <a href="/collection?type=dps">
+            <a href="/collection?type=Dégâts">
                 <div>
                     Les Dps
                 </div>
@@ -49,17 +74,17 @@
     </div>
         <div>
             Stat principale
-            <a href="/collection?type=force">
+            <a href="/collection?type=Force">
                 <div>
                     Force
                 </div>
             </a>
-            <a href="/collection?type=agilite">
+            <a href="/collection?type=Agilité">
                 <div>
                     Agilité
                 </div>
             </a>
-            <a href="/collection?type=intelligence">
+            <a href="/collection?type=Intelligence">
                 <div>
                     Intelligence
                 </div>

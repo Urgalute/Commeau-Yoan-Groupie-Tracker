@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="../static/css/doc.css">
     <title>Document</title>
 </head>
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo"><img src="../static/img/logo_WOW.png" alt="Logo de World of Warcraft"></a>
+        <div class="nav-links">
+            <a href="/categorie" class="cat-name">
+                <div class="cat-btn">Catégories</div>
+            </a>
+            <a href="/favoris" class="cat-name">
+                <div class="cat-btn">Favoris</div>
+            </a>
+            <a href="/about" class="cat-name">
+                <div class="cat-btn">About</div>
+            </a>
+            <a href="/doc" class="cat-name">
+                <div class="cat-btn">Doc</div>
+            </a>
+
+        </div>
+        <div class="searchBox">
+            <form action="/rechercher" method="POST">
+                <input class="searchInput" type="text" name="query" placeholder="Rechercher">
+                <button class="searchButton" type="submit">Go</button>
+            </form>
+        </div>
+    </nav>
+</header>
 <body>
 Ici page des favoris, penser à gerer le if nil 
 </body>

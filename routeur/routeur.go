@@ -14,6 +14,7 @@ func InitServ() {
 	http.HandleFunc("/collection", controller.Collection)
 	http.HandleFunc("/categorie", controller.Categorie)
 	//http.HandleFunc("/favoris", )
+	http.HandleFunc("/rechercher", controller.Search)
 	http.HandleFunc("/ressource", controller.Ressource)
 
 	rootDoc, _ := os.Getwd()

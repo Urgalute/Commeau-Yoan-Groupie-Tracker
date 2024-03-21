@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "Righteous";
+    src: url(../font/Righteous-Regular.ttf);
+  }
+  
+  :root {
+    --font-Righteous: "Righteous";
+    --main-font-color: aliceblue;
+  }
+  
+  *{
+    font-family: "Righteous";
+  }
+  
+  html {
+    background-color: #604f4f;
+    background-image: linear-gradient(0deg, #928888 1%, #7f7f7f 100%);
+    background-size: cover;
+    font-family: var(--font-Righteous);
+  }
+  
+  body {
+    display: flex;
+    margin: 0 8px 0 8px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #292929;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .navbar img {
+    height: 40px;
+  }
+  .navbar {
+    position: sticky;
+    padding: 50px 30px 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .navbar .logo {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .nav-links {
+    display: flex;
+  }
+  .cat-name {
+    color: var(--main-font-color);
+    text-decoration: none;
+    font-size: 2vw;
+    margin: 0 10px 0 10px;
+  }
+  .cat-btn:hover {
+    background-color: var(--hover-bg-color);
+    border-radius: 100px;
+    background: rgba(76, 88, 255, 0.815);
+    border-radius: 100px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: black;
+  }
+  
+  .cat-btn {
+    width: 10vw;
+    height: 5vh;
+    border-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cat-btn-active {
+    width: 10vw;
+    height: 5vh;
+    border-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--hover-bg-color);
+    border-radius: 100px;
+    background: rgba(76, 88, 255, 0.815);
+    border-radius: 100px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: black;
+  }
+  
+  .searchBox{
+      background: #b7adad;
+      height: 5vh;
+      width: 20vw;
+      border-radius: 40px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .searchBox form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .searchInput{
+      border:none;
+      background: none;
+      color: white;
+      outline:none;
+      font-size: 20px;
+      width: 100%;
+  
+  }
+  
+  .searchButton{
+      color: white;
+      float: right;
+      width: 40px;
+      height: 40px;
+      height: 100%;
+      border-radius: 50%;
+      background: #2f3640;
+  }

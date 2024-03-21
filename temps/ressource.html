@@ -1,26 +1,124 @@
 {{define "ressource"}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/global.css">
-    <link rel="stylesheet" href="../static/css/doc.css">
+    <link rel="stylesheet" href="../static/css/ressource.css">
     <title>Document</title>
 </head>
+
 <body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo"><img src="../static/img/logo_WOW.png" alt="Logo de World of Warcraft"></a>
+            <div class="nav-links">
+                <a href="/categorie" class="cat-name">
+                    <div class="cat-btn">Catégories</div>
+                </a>
+                <a href="/favoris" class="cat-name">
+                    <div class="cat-btn">Favoris</div>
+                </a>
+                <a href="/about" class="cat-name">
+                    <div class="cat-btn">About</div>
+                </a>
+                <a href="/doc" class="cat-name">
+                    <div class="cat-btn">Doc</div>
+                </a>
+
+            </div>
+            <div class="searchBox">
+                <form action="/rechercher" method="POST">
+                    <input class="searchInput" type="text" name="query" placeholder="Rechercher">
+                    <button class="searchButton" type="submit">Go</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="main">
+            {{if eq .Route "class"}}
+            
+            <h1 class="name">{{.Name}}</h1>
+            <div class="spec">
+                {{range .ClassSpec}}
+                <h2>
+                    <a href="/ressource?route=spec&type={{.Id}}">
+                        {{.Name}}
+                    </a>
+                </h2>
+                {{end}}
+            </div>
+            <div class="playablerace">
+                {{range .ClassPlayableRace}}
+                <a href="/ressource?route=race&type={{.Id}}">
+                    {{.Name}}
+                </a>
+                {{end}}
+            </div>
+                {{.ClassPowerType.PowerName}}
+            {{if .ClassAddPowerType}}
+                {{range .ClassAddPowerType}}
+                    {{.AddPowerName}}
+                {{end}}
+            {{end}}
 
 
+            {{else if eq .Route "race"}}
+            <div class="name">
+                <h1>{{.Name}}</h1>
+            </div>
+            <div class="class">
+                {{range .RacePlayableClass}}
+                    <a href="ressource?route=class&type={{.Id}}">
+                        {{.Name}}
+                    </a>
+                {{end}}
+            </div>
 
-{{.Name}}
 
+            {{.RaceFaction.FactionName}}
 
+            {{if eq .RaceAllied true}}
+            <p>Race Allié : Oui</p>
+            {{else}}
+            <p>Race Allié : Non</p>
+            {{end}}
 
+            {{else if eq .Route "spec"}}
 
+            <a href="/ressource?route=class&type={{.ClassName.Id}}">
+                {{.ClassName.Name}}
+            </a>
 
+            {{.Name}}
 
-    
-    Ici affichage détaillé de la spécialisation sélectionné
+            {{.SpecDescription.Description}}
+
+            <a href="/collection?type={{.SpecRole.RoleName}}">
+                {{.SpecRole.RoleName}}
+            </a>
+
+            {{.SpecPowerType.PowerName}}
+
+            <a href="/collection?type={{.SpecPrimaryStat.PrimaryStatName}}">
+                {{.SpecPrimaryStat.PrimaryStatName}}
+            </a>
+
+            {{else}}
+
+            {{range .TabSpec}}
+
+            {{.Name}}
+
+            {{end}}
+
+            {{end}}
+        </div>
+    </div>
 </body>
+
 </html>
 {{end}}
