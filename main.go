@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	controller.GetDataFromJson()
 	controller.AskToken()
 	temps.InitTemplate()
 	routeur.InitServ()

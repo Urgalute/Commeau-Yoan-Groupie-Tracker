@@ -45,7 +45,7 @@
             <div class="spec">
                 {{range .ClassSpec}}
                 <h2>
-                    <a href="/ressource?route=spec&type={{.Id}}">
+                    <a href="/ressource?route=spec&id={{.Id}}">
                         {{.Name}}
                     </a>
                 </h2>
@@ -53,7 +53,7 @@
             </div>
             <div class="playablerace">
                 {{range .ClassPlayableRace}}
-                <a href="/ressource?route=race&type={{.Id}}">
+                <a href="/ressource?route=race&id={{.Id}}">
                     {{.Name}}
                 </a>
                 {{end}}
@@ -72,7 +72,7 @@
             </div>
             <div class="class">
                 {{range .RacePlayableClass}}
-                    <a href="ressource?route=class&type={{.Id}}">
+                    <a href="ressource?route=class&id={{.Id}}">
                         {{.Name}}
                     </a>
                 {{end}}
@@ -88,8 +88,10 @@
             {{end}}
 
             {{else if eq .Route "spec"}}
-
-            <a href="/ressource?route=class&type={{.ClassName.Id}}">
+            <a href="/favtreatment?type=add&route={{.Route}}&id={{.Id}}&name={{.Name}}">
+                <button class="searchButton" type="submit">Go</button>
+            </a>
+            <a href="/ressource?route=class&id={{.ClassName.Id}}">
                 {{.ClassName.Name}}
             </a>
 
@@ -116,6 +118,7 @@
             {{end}}
 
             {{end}}
+            <p>dsfdsf</p>
         </div>
     </div>
 </body>

@@ -13,7 +13,8 @@ func InitServ() {
 	//http.HandleFunc("/about", )
 	http.HandleFunc("/collection", controller.Collection)
 	http.HandleFunc("/categorie", controller.Categorie)
-	//http.HandleFunc("/favoris", )
+	http.HandleFunc("/favoris", controller.Favoris)
+	http.HandleFunc("/favtreatment", controller.FavTreatment)
 	http.HandleFunc("/rechercher", controller.Search)
 	http.HandleFunc("/ressource", controller.Ressource)
 

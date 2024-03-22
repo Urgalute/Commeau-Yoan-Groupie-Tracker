@@ -116,7 +116,7 @@ type Recherche struct {
 	id    int
 }
 type Fav struct {
-	Id    int
+	Spec  Spec
 	FavId int
 	Route string
 }

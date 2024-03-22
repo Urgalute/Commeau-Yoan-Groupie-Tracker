@@ -9,7 +9,7 @@ import (
 
 func Ressource(w http.ResponseWriter, r *http.Request) {
 	route := r.URL.Query().Get("route")
-	id, err := strconv.Atoi(r.URL.Query().Get("type"))
+	id, err := strconv.Atoi(r.URL.Query().Get("id"))
 	fmt.Println(route)
 	fmt.Println(id)
 	if err != nil {

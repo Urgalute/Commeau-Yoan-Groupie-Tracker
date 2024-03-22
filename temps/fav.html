@@ -1,6 +1,7 @@
 {{define "fav"}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,8 +35,21 @@
         </div>
     </nav>
 </header>
+
 <body>
-Ici page des favoris, penser à gerer le if nil 
+    {{range .}}
+    <a href="/favtreatment?type=del&favid={{.FavId}}&id={{.Spec.Id}}">
+        <button class="searchButton" type="submit">Go</button>
+    </a>
+    <a href="/ressource?route={{.Route}}&id={{.Spec.Id}}">
+        {{.Spec.Name}}
+    </a>
+    {{end}}
+
+    <p>Pas encore de favoris</p>
+
+    Ici page des favoris, penser à gerer le if nil
 </body>
+
 </html>
 {{end}}

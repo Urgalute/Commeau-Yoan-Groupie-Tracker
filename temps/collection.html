@@ -39,7 +39,7 @@
     <p>Col</p>
     {{if eq .Route "allclass"}}
         {{range .TabClass}}
-            <a href="/ressource?route=class&type={{.Id}}">
+            <a href="/ressource?route=class&id={{.Id}}">
             <div>
                 {{.Name}}
             </div>
@@ -47,7 +47,7 @@
         {{end}}
     {{else if eq .Route "allrace"}}
         {{range .TabRace}}
-            <a href="/ressource?route=race&type={{.Id}}">
+            <a href="/ressource?route=race&id={{.Id}}">
             <div>
                 {{.Name}}
             </div>
@@ -55,7 +55,7 @@
         {{end}}
     {{else}}
         {{range .TabSpec}}
-            <a href="/ressource?route=spec&type={{.Id}}">
+            <a href="/ressource?route=spec&id={{.Id}}">
                 <p> {{.Name}} </p>
             </a>
            {{end}}
